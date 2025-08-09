@@ -1,0 +1,14 @@
+Project Requirements Batch 9 Module 6
+
+Question 1) find 3 second lowest salary from employee table 
+B) find second lowest salary from employee table using sub query 
+C) find pending balance from account table where result fulfill following conditions 
+a. show average pending balance 
+b. account should be active 
+c. grouping should be on open branch id 
+d. the branches on where PENDING_BALANCE is bellow 4300 
+D) Write a pagination query and explain it. 
+E) Think you have a bank and many branches . You have a account table where multiple 
+account from multiple branch. 
+table contains OPEN_BRANCH_ID . Write a query to find total number of branch 
+including head branch

@@ -2,7 +2,7 @@
     Q1) find 3 
     second lowest salary 
     from employee table 
-    **********************************************************
+    *****************************************************************************************
     Answer 1 below:
 */
 
@@ -16,7 +16,7 @@ OFFSET 1 ;
     find second lowest salary 
     from employee table 
     using sub query
-    **********************************************************
+    *****************************************************************************************
     Answer 2 below:
 */
 
@@ -31,7 +31,7 @@ WHERE salary = (SELECT salary FROM employee ORDER BY `salary` ASC LIMIT 1 OFFSET
     b. account should be active 
     c. grouping should be on open branch id 
     d. the branches on where PENDING_BALANCE is bellow 4300
-    **********************************************************
+    *****************************************************************************************
     Answer 3 below:
 */
 
@@ -44,7 +44,7 @@ GROUP BY OPEN_BRANCH_ID;
 
 /*
     Write a pagination query and explain it.
-    **********************************************************
+    *****************************************************************************************
     Answer 4 below:
 
     Per page 5 rows showing
@@ -62,8 +62,27 @@ EXECUTE data;
 DEALLOCATE PREPARE data;
 
 /*
-    Think you have a bank and many branches . You have a account table where multiple
-    account from multiple branch.
-    **********************************************************
+    Think you have a bank and many branches. 
+    You have a account table 
+    where multiple account from multiple branch.
+    *****************************************************************************************
     Answer 6 below:
 */
+
+SELECT branch.NAME, COUNT(account.ACCOUNT_ID) 
+FROM account, branch 
+WHERE branch.BRANCH_ID = account.OPEN_BRANCH_ID 
+GROUP BY account.OPEN_BRANCH_ID;
+-- *****************************************************************************************
+SELECT branch.NAME, account.ACCOUNT_ID, customer.STATE 
+FROM account, branch, customer 
+WHERE branch.BRANCH_ID = account.OPEN_BRANCH_ID AND customer.CUST_ID = account.CUST_ID
+
+/*
+    table contains OPEN_BRANCH_ID . Write a query to find total number of branch
+    including head branch
+
+     Answer 6 below:
+*/
+SELECT COUNT(DISTINCT OPEN_BRANCH_ID) 
+FROM account;
